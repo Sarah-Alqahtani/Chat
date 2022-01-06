@@ -23,6 +23,12 @@
 		C3881C202785C3D70044727C /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = C3881C1F2785C3D70044727C /* FirebaseStorage */; };
 		C3881C2227860F7F0044727C /* DatabaseManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3881C2127860F7E0044727C /* DatabaseManger.swift */; };
 		C3881C242786EA430044727C /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3881C232786EA430044727C /* ProfileVC.swift */; };
+		C3881C2727871FB40044727C /* MessageKit in Frameworks */ = {isa = PBXBuildFile; productRef = C3881C2627871FB40044727C /* MessageKit */; };
+		C3881C2A278722850044727C /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = C3881C29278722850044727C /* Realm */; };
+		C3881C2C278722850044727C /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C3881C2B278722850044727C /* RealmSwift */; };
+		C3881C2F278724070044727C /* JGProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = C3881C2E278724070044727C /* JGProgressHUD */; };
+		C3881C32278724730044727C /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = C3881C31278724730044727C /* SDWebImage */; };
+		C3881C34278724730044727C /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = C3881C33278724730044727C /* SDWebImageMapKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,10 +53,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3881C2A278722850044727C /* Realm in Frameworks */,
 				C3881C1E2785C3D70044727C /* FirebaseDatabase in Frameworks */,
+				C3881C2C278722850044727C /* RealmSwift in Frameworks */,
 				C3881C202785C3D70044727C /* FirebaseStorage in Frameworks */,
+				C3881C2F278724070044727C /* JGProgressHUD in Frameworks */,
 				C3881C1A2785C3D70044727C /* FirebaseAnalytics in Frameworks */,
+				C3881C34278724730044727C /* SDWebImageMapKit in Frameworks */,
+				C3881C32278724730044727C /* SDWebImage in Frameworks */,
 				C3881C1C2785C3D70044727C /* FirebaseAuth in Frameworks */,
+				C3881C2727871FB40044727C /* MessageKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,6 +126,12 @@
 				C3881C1B2785C3D70044727C /* FirebaseAuth */,
 				C3881C1D2785C3D70044727C /* FirebaseDatabase */,
 				C3881C1F2785C3D70044727C /* FirebaseStorage */,
+				C3881C2627871FB40044727C /* MessageKit */,
+				C3881C29278722850044727C /* Realm */,
+				C3881C2B278722850044727C /* RealmSwift */,
+				C3881C2E278724070044727C /* JGProgressHUD */,
+				C3881C31278724730044727C /* SDWebImage */,
+				C3881C33278724730044727C /* SDWebImageMapKit */,
 			);
 			productName = Chat;
 			productReference = C3881BF72784E3E70044727C /* Chat.app */;
@@ -145,6 +163,10 @@
 			mainGroup = C3881BEE2784E3E70044727C;
 			packageReferences = (
 				C3881C182785C3D70044727C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				C3881C2527871FB30044727C /* XCRemoteSwiftPackageReference "MessageKit" */,
+				C3881C28278722850044727C /* XCRemoteSwiftPackageReference "realm-swift" */,
+				C3881C2D278724060044727C /* XCRemoteSwiftPackageReference "JGProgressHUD" */,
+				C3881C30278724730044727C /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			productRefGroup = C3881BF82784E3E70044727C /* Products */;
 			projectDirPath = "";
@@ -411,6 +433,38 @@
 				minimumVersion = 8.0.0;
 			};
 		};
+		C3881C2527871FB30044727C /* XCRemoteSwiftPackageReference "MessageKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/MessageKit/MessageKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+		C3881C28278722850044727C /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		C3881C2D278724060044727C /* XCRemoteSwiftPackageReference "JGProgressHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/JonasGessner/JGProgressHUD";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+		C3881C30278724730044727C /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -433,6 +487,36 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C3881C182785C3D70044727C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
+		};
+		C3881C2627871FB40044727C /* MessageKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C3881C2527871FB30044727C /* XCRemoteSwiftPackageReference "MessageKit" */;
+			productName = MessageKit;
+		};
+		C3881C29278722850044727C /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C3881C28278722850044727C /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		C3881C2B278722850044727C /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C3881C28278722850044727C /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+		C3881C2E278724070044727C /* JGProgressHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C3881C2D278724060044727C /* XCRemoteSwiftPackageReference "JGProgressHUD" */;
+			productName = JGProgressHUD;
+		};
+		C3881C31278724730044727C /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C3881C30278724730044727C /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		C3881C33278724730044727C /* SDWebImageMapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C3881C30278724730044727C /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImageMapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

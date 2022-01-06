@@ -41,47 +41,42 @@ class Regster: UIViewController {
         }
 
 
-    @IBAction func Rgsterbtn(_ sender: Any) {
+    @IBAction func Rgsterbtn(_ sender: UIButton) {
         
-        FirstName.resignFirstResponder()
-        LastName.resignFirstResponder()
-        EmailRgster.resignFirstResponder()
-        NewPassword.resignFirstResponder()
-        
-        guard let firstName = FirstName.text, let lastName = LastName.text, let email = EmailRgster.text, let password = NewPassword.text, !firstName.isEmpty, !lastName.isEmpty, !email.isEmpty, !password.isEmpty else {
-                   alertLogInError()
-        
-            
-            return
+        guard let fName = FirstName.text, let lName = LastName.text, let eAddress = EmailRgster.text , let nPass = NewPassword.text, !fName.isEmpty, !lName.isEmpty , !eAddress.isEmpty, !nPass.isEmpty else {
+                         alertEmpty()
+                         return
+                     }
+             // Firebase Login
+            DatabaseManger.shared.userExists(with: eAddress, completion: { [weak self] exists in
+                 guard let strongSelf = self else{
+                     return
+                 }
+                 
+                 guard !exists else{
+                  // user already exists
+                     strongSelf.alertEmpty(message: "Account already exists")
+                     return
+                 }
+                 Auth.auth().createUser(withEmail: eAddress, password: nPass, completion: { authResult, error in
+                     
+                     guard authResult != nil, error == nil else{
+                         print("Error Creating User")
+                         return
+                     }
+                     DatabaseManger.shared.insertUser(with: ChatEverUser(firstName: fName, lastName: lName, email: eAddress))
+                     strongSelf.navigationController?.dismiss(animated: true, completion: nil)
+                 })
+             })
+                }
+    
+    
+    
+    func alertEmpty(message: String = "Text Fields must be not empty"){
+        let alert = UIAlertController(title: "Woops", message: message, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+                present(alert, animated: true)
     }
-        guard let password = NewPassword.text, password.count >= 6  else {
-                            alretPasswordError()
-                            return
-                        }
-        
-        Auth.auth().createUser(withEmail: email, password: password, completion: { authResult , error  in
-            guard let result = authResult, error == nil else {
-                print("Error creating user")
-                return
-            }
-            let user = result.user
-            print("Created User: \(user)")
-        })    }
-    
-    
-    
-    func alertLogInError() {
-           let alert = UIAlertController(title: "Error", message: "Please, enter all required fields to create a new account!", preferredStyle: .alert)
-           alert.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: nil))
-           present(alert, animated: true)
-       }
-       
-       func alretPasswordError() {
-           let alert = UIAlertController(title: "Error", message: "Password must be 6 characters at least.", preferredStyle: .alert)
-           alert.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: nil))
-           present(alert, animated: true)
-       }
-    
 
 }
 

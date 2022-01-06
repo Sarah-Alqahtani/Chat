@@ -21,6 +21,7 @@
 		C3881C1C2785C3D70044727C /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = C3881C1B2785C3D70044727C /* FirebaseAuth */; };
 		C3881C1E2785C3D70044727C /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = C3881C1D2785C3D70044727C /* FirebaseDatabase */; };
 		C3881C202785C3D70044727C /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = C3881C1F2785C3D70044727C /* FirebaseStorage */; };
+		C3881C2227860F7F0044727C /* DatabaseManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3881C2127860F7E0044727C /* DatabaseManger.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		C3881C122784E9B80044727C /* SigninVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninVC.swift; sourceTree = "<group>"; };
 		C3881C142784E9E40044727C /* Regster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Regster.swift; sourceTree = "<group>"; };
 		C3881C162785C24B0044727C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C3881C2127860F7E0044727C /* DatabaseManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManger.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				C3881C102784E8D10044727C /* ConversationVCT.swift */,
 				C3881C122784E9B80044727C /* SigninVC.swift */,
 				C3881C142784E9E40044727C /* Regster.swift */,
+				C3881C2127860F7E0044727C /* DatabaseManger.swift */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -173,6 +176,7 @@
 				C3881C132784E9B80044727C /* SigninVC.swift in Sources */,
 				C3881BFD2784E3E70044727C /* SceneDelegate.swift in Sources */,
 				C3881C152784E9E40044727C /* Regster.swift in Sources */,
+				C3881C2227860F7F0044727C /* DatabaseManger.swift in Sources */,
 				C3881C112784E8D10044727C /* ConversationVCT.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

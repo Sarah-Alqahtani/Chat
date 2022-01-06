@@ -6,30 +6,34 @@
 //
 
 import UIKit
+import FirebaseAuth
+
 
 class ConversationVCT: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        do{
+                    try Auth.auth().signOut()
+                }catch{
+                    print(error.localizedDescription)
+                }
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     override func viewDidAppear(_ animated: Bool) {
-            super.viewDidAppear(animated)
-        view.backgroundColor = .white
-
-            let isLoggedIn = UserDefaults.standard.bool(forKey: "logged_in")
-            
-            if !isLoggedIn {
-                let vc = self.storyboard?.instantiateViewController(withIdentifier: "SigninVC") as! SigninVC
-                self.navigationController?.pushViewController(vc, animated: false)
-            }
+        super.viewDidAppear(animated)
+                   validateAuth()
         }
-
+    
+    
+    private func validateAuth(){
+            if Auth.auth().currentUser == nil {
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: "SigninVC") as! SigninVC
+                let navVC = UINavigationController(rootViewController: vc)
+                navVC.modalPresentationStyle = .fullScreen
+                self.present(navVC, animated: false)
+                       }
+                   }
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {

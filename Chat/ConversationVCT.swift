@@ -13,12 +13,17 @@ class ConversationVCT: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        do{
+        
+        
+        
+       /* do{
                     try Auth.auth().signOut()
                 }catch{
                     print(error.localizedDescription)
                 }
-
+*/
+        
+        
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)

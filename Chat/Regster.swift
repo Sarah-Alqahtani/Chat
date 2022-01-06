@@ -7,9 +7,10 @@
 
 import UIKit
 import FirebaseAuth
+import JGProgressHUD
 
 class Regster: UIViewController {
-    
+    private let spinner = JGProgressHUD(style: .dark)
     //var PickerVc:UIImagePickerController?
 
     @IBOutlet weak var FirstName: UITextField!
@@ -47,12 +48,18 @@ class Regster: UIViewController {
                          alertEmpty()
                          return
                      }
+        
+        spinner.show(in: view)
              // Firebase Login
             DatabaseManger.shared.userExists(with: eAddress, completion: { [weak self] exists in
                  guard let strongSelf = self else{
                      return
                  }
-                 
+                
+                DispatchQueue.main.async {
+                    strongSelf.spinner.dismiss()
+                }
+                
                  guard !exists else{
                   // user already exists
                      strongSelf.alertEmpty(message: "Account already exists")

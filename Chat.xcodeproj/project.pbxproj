@@ -29,6 +29,8 @@
 		C3881C2F278724070044727C /* JGProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = C3881C2E278724070044727C /* JGProgressHUD */; };
 		C3881C32278724730044727C /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = C3881C31278724730044727C /* SDWebImage */; };
 		C3881C34278724730044727C /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = C3881C33278724730044727C /* SDWebImageMapKit */; };
+		C3881C36278737010044727C /* chatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3881C35278737010044727C /* chatViewController.swift */; };
+		C3881C382787778E0044727C /* NewConversationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3881C372787778E0044727C /* NewConversationVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,8 @@
 		C3881C162785C24B0044727C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C3881C2127860F7E0044727C /* DatabaseManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManger.swift; sourceTree = "<group>"; };
 		C3881C232786EA430044727C /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		C3881C35278737010044727C /* chatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chatViewController.swift; sourceTree = "<group>"; };
+		C3881C372787778E0044727C /* NewConversationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewConversationVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +105,8 @@
 				C3881C142784E9E40044727C /* Regster.swift */,
 				C3881C2127860F7E0044727C /* DatabaseManger.swift */,
 				C3881C232786EA430044727C /* ProfileVC.swift */,
+				C3881C35278737010044727C /* chatViewController.swift */,
+				C3881C372787778E0044727C /* NewConversationVC.swift */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -198,7 +204,9 @@
 			files = (
 				C3881BFF2784E3E70044727C /* ViewController.swift in Sources */,
 				C3881BFB2784E3E70044727C /* AppDelegate.swift in Sources */,
+				C3881C382787778E0044727C /* NewConversationVC.swift in Sources */,
 				C3881C132784E9B80044727C /* SigninVC.swift in Sources */,
+				C3881C36278737010044727C /* chatViewController.swift in Sources */,
 				C3881BFD2784E3E70044727C /* SceneDelegate.swift in Sources */,
 				C3881C242786EA430044727C /* ProfileVC.swift in Sources */,
 				C3881C152784E9E40044727C /* Regster.swift in Sources */,

@@ -7,14 +7,17 @@
 
 import UIKit
 import FirebaseAuth
-
+import JGProgressHUD
+import SwiftUI
 
 class ConversationVCT: UITableViewController {
 
+    
+    private let spinner = JGProgressHUD(style: .dark)
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(didTapComposeButton))
         
        /* do{
                     try Auth.auth().signOut()
@@ -23,6 +26,13 @@ class ConversationVCT: UITableViewController {
                 }
 */
         
+        
+    }
+    
+    @objc private func didTapComposeButton(){
+        let vc = NewConversationVC()
+        let navVc = UINavigationController(rootViewController: vc)
+        present(navVc , animated: true)
         
     }
     override func viewDidAppear(_ animated: Bool) {
@@ -41,25 +51,30 @@ class ConversationVCT: UITableViewController {
                    }
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
+//    override func numberOfSections(in tableView: UITableView) -> Int {
+//
+//        return 1
+//    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        
+        return 1
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        cell.textLabel?.text="Hello World"
+        
         return cell
     }
-    */
+    
+     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath , animated: true)
+         let vc = chatViewController()
+         vc.navigationItem.largeTitleDisplayMode = .never
+         navigationController?.pushViewController(vc, animated: true)
+    }
 
     /*
     // Override to support conditional editing of the table view.

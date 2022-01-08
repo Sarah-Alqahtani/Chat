@@ -30,13 +30,21 @@ extension DatabaseManger{
            return
        }
     
-    public func insertUser(with user: ChatEverUser){
+    public func insertUser(with user: ChatEverUser, completion: @escaping (Bool) -> Void){
         database.child(user.safeEmail).setValue([
             
             "firstName" : user.firstName,
-            "lastName" : user.lastName,
+            "lastName" : user.lastName
             
-        ])
+        ], withCompletionBlock: { error, _ in
+            guard error == nil else {
+              print("failed write to database")
+                completion(false)
+                return
+            }
+            completion(true)
+            
+        })
         
     }
     
@@ -54,5 +62,8 @@ struct ChatEverUser{
             return safeEmail
     
 }
+    var profilePictureFileName: String {
+        return "\(safeEmail)_profile_picture.png"
+    }
 
 }

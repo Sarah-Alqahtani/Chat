@@ -166,7 +166,7 @@
                         <outlet property="FirstName" destination="tRi-Sh-Gg2" id="LQ7-A1-PRi"/>
                         <outlet property="LastName" destination="hsO-ut-kAR" id="0LI-7z-38A"/>
                         <outlet property="NewPassword" destination="vGs-0w-4j4" id="q3g-rq-GMY"/>
-                        <outlet property="image" destination="qgj-pp-bla" id="jTb-7b-x7f"/>
+                        <outlet property="imageUiView" destination="qgj-pp-bla" id="jTb-7b-x7f"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -324,6 +324,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="gAs-uC-0rg" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Lwe-dR-nm4">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>

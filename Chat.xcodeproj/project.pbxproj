@@ -31,6 +31,7 @@
 		C3881C34278724730044727C /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = C3881C33278724730044727C /* SDWebImageMapKit */; };
 		C3881C36278737010044727C /* chatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3881C35278737010044727C /* chatViewController.swift */; };
 		C3881C382787778E0044727C /* NewConversationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3881C372787778E0044727C /* NewConversationVC.swift */; };
+		C3881C3B278964DA0044727C /* StorageManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3881C3A278964DA0044727C /* StorageManger.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		C3881C232786EA430044727C /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		C3881C35278737010044727C /* chatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chatViewController.swift; sourceTree = "<group>"; };
 		C3881C372787778E0044727C /* NewConversationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewConversationVC.swift; sourceTree = "<group>"; };
+		C3881C3A278964DA0044727C /* StorageManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManger.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 		C3881BF92784E3E70044727C /* Chat */ = {
 			isa = PBXGroup;
 			children = (
+				C3881C39278964360044727C /* DB */,
 				C3881BFA2784E3E70044727C /* AppDelegate.swift */,
 				C3881BFC2784E3E70044727C /* SceneDelegate.swift */,
 				C3881BFE2784E3E70044727C /* ViewController.swift */,
@@ -103,12 +106,20 @@
 				C3881C102784E8D10044727C /* ConversationVCT.swift */,
 				C3881C122784E9B80044727C /* SigninVC.swift */,
 				C3881C142784E9E40044727C /* Regster.swift */,
-				C3881C2127860F7E0044727C /* DatabaseManger.swift */,
 				C3881C232786EA430044727C /* ProfileVC.swift */,
 				C3881C35278737010044727C /* chatViewController.swift */,
 				C3881C372787778E0044727C /* NewConversationVC.swift */,
 			);
 			path = Chat;
+			sourceTree = "<group>";
+		};
+		C3881C39278964360044727C /* DB */ = {
+			isa = PBXGroup;
+			children = (
+				C3881C2127860F7E0044727C /* DatabaseManger.swift */,
+				C3881C3A278964DA0044727C /* StorageManger.swift */,
+			);
+			path = DB;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -208,6 +219,7 @@
 				C3881C132784E9B80044727C /* SigninVC.swift in Sources */,
 				C3881C36278737010044727C /* chatViewController.swift in Sources */,
 				C3881BFD2784E3E70044727C /* SceneDelegate.swift in Sources */,
+				C3881C3B278964DA0044727C /* StorageManger.swift in Sources */,
 				C3881C242786EA430044727C /* ProfileVC.swift in Sources */,
 				C3881C152784E9E40044727C /* Regster.swift in Sources */,
 				C3881C2227860F7F0044727C /* DatabaseManger.swift in Sources */,

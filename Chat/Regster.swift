@@ -22,16 +22,16 @@ class Regster: UIViewController {
     @IBOutlet weak var NewPassword: UITextField!
     
     
-    @IBOutlet weak var image: UIImageView!
+    @IBOutlet weak var imageUiView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         title = "Create Account"
         
-        image.isUserInteractionEnabled = true
+        imageUiView.isUserInteractionEnabled = true
                 let gesture = UITapGestureRecognizer(target: self, action: #selector(didTapChangeProfilePic))
-                image.addGestureRecognizer(gesture)
+                imageUiView.addGestureRecognizer(gesture)
         
         
         
@@ -71,7 +71,28 @@ class Regster: UIViewController {
                          print("Error Creating User")
                          return
                      }
-                     DatabaseManger.shared.insertUser(with: ChatEverUser(firstName: fName, lastName: lName, email: eAddress))
+                     let chatUser = ChatEverUser(firstName: fName, lastName: lName, email: eAddress)
+                     DatabaseManger.shared.insertUser(with: chatUser,completion: { success in
+                         if success {
+                             //upload image
+                             guard let image = strongSelf.imageUiView.image,
+                                    let data = image.pngData() else {
+                                        return
+                                    }
+                             let fileName = chatUser.profilePictureFileName
+                             StorageManger.shared.uploadProfilePicture(with: data, fileName: fileName, completion: { result in
+                                 switch result{
+                                 case.success(let downloadUrl):
+                                     UserDefaults.standard.set(downloadUrl, forKey: "profile_picture_url")
+                                     print(downloadUrl)
+                                 case.failure(let error):
+                                     print("Storage manger error\(error)")
+                                 }
+                                 
+                             })
+                                    
+                         }
+                     })
                      strongSelf.navigationController?.dismiss(animated: true, completion: nil)
                  })
              })
@@ -126,7 +147,7 @@ extension Regster:UIImagePickerControllerDelegate,UINavigationControllerDelegate
              return
          }
          
-         self.image.image = selectedImage
+         self.imageUiView.image = selectedImage
          
      }
      func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {

@@ -12,6 +12,12 @@ final class DatabaseManger{
     
     static let shared = DatabaseManger()
     private let database = Database.database().reference()
+    
+    static func safeEmail(email:String) -> String {
+        var safeEmail = email.replacingOccurrences(of: ".", with: "-")
+        safeEmail = safeEmail.replacingOccurrences(of: "@", with: "-")
+                return safeEmail
+    }
 
 }
 
@@ -30,7 +36,7 @@ extension DatabaseManger{
            return
        }
     
-    public func insertUser(with user: ChatEverUser, completion: @escaping (Bool) -> Void){
+    public func insertUser(with user: ChatAppUser, completion: @escaping (Bool) -> Void){
         database.child(user.safeEmail).setValue([
             
             "firstName" : user.firstName,
@@ -51,7 +57,7 @@ extension DatabaseManger{
     
 }
 
-struct ChatEverUser{
+struct ChatAppUser{
     let firstName:String
     let lastName:String
     let email:String

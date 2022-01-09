@@ -53,7 +53,9 @@ class SigninVC: UIViewController {
                       print("Failed to log in user with email \(email)")
                       return
                   }
+                  
                   let user = result.user
+                  UserDefaults.standard.setValue(email, forKey: "email")
                   print("Logged In User: \(user)")
                   strongSelf.navigationController?.dismiss(animated: true, completion: nil)
               })

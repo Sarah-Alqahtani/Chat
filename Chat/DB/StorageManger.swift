@@ -37,17 +37,39 @@ final class StorageManger{
                 print("download url returned:\(urlString)")
                 completion(.success(urlString))
                 
-                
             })
             
         })
-    }
-    
-    public enum StorageErorr : Error {
-        case faildToUpload
-        case faildToGetDownloadUrl
-
         
     }
-    
-}
+    func downloadImage(imageView:UIImageView,url: URL){
+        URLSession.shared.dataTask(with: url, completionHandler: { data, _, error in
+            guard let data = data, error == nil else {
+                return
+            }
+            DispatchQueue.main.async {
+                let image = UIImage(data: data)
+                imageView.image = image
+            }
+            
+        } ).resume()
+    }
+    public enum StorageErorr : Error {
+        
+        case faildToUpload
+        case faildToGetDownloadUrl
+  
+    }
+    public func downloadURL(for path: String, completion: @escaping (Result<URL, Error>) -> Void) {
+           let reference = storage.child(path)
+
+           reference.downloadURL(completion: { url, error in
+               guard let url = url, error == nil else {
+                   completion(.failure(StorageErorr.faildToGetDownloadUrl))
+                   return
+               }
+
+               completion(.success(url))
+           })
+       }
+   }

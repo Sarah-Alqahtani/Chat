@@ -32,7 +32,10 @@ class Regster: UIViewController {
         imageUiView.isUserInteractionEnabled = true
                 let gesture = UITapGestureRecognizer(target: self, action: #selector(didTapChangeProfilePic))
                 imageUiView.addGestureRecognizer(gesture)
-        
+        imageUiView.layer.borderColor = UIColor.white.cgColor
+        imageUiView.layer.borderWidth = 3
+        imageUiView.layer.masksToBounds = true
+        imageUiView.layer.cornerRadius = imageUiView.frame.size.width/2
         
         
     }
@@ -71,7 +74,7 @@ class Regster: UIViewController {
                          print("Error Creating User")
                          return
                      }
-                     let chatUser = ChatEverUser(firstName: fName, lastName: lName, email: eAddress)
+                     let chatUser = ChatAppUser(firstName: fName, lastName: lName, email: eAddress)
                      DatabaseManger.shared.insertUser(with: chatUser,completion: { success in
                          if success {
                              //upload image
@@ -83,7 +86,8 @@ class Regster: UIViewController {
                              StorageManger.shared.uploadProfilePicture(with: data, fileName: fileName, completion: { result in
                                  switch result{
                                  case.success(let downloadUrl):
-                                     UserDefaults.standard.set(downloadUrl, forKey: "profile_picture_url")
+                                     //editing editing
+                                     UserDefaults.standard.setValue(downloadUrl, forKey: "profile_picture_url")
                                      print(downloadUrl)
                                  case.failure(let error):
                                      print("Storage manger error\(error)")

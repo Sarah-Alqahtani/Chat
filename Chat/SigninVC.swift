@@ -41,25 +41,41 @@ class SigninVC: UIViewController {
         spinner.show(in: view)
               
               // Firebase Login
-              Auth.auth().signIn(withEmail: email, password: password, completion: { [weak self] authResult, error in
-                  guard let strongSelf = self else{
-                      return
-                  }
-                  
-                  DispatchQueue.main.async {
-                      strongSelf.spinner.dismiss()
-                  }
-                  guard let result = authResult, error == nil else{
-                      print("Failed to log in user with email \(email)")
-                      return
-                  }
-                  
-                  let user = result.user
-                  UserDefaults.standard.setValue(email, forKey: "email")
-                  print("Logged In User: \(user)")
-                  strongSelf.navigationController?.dismiss(animated: true, completion: nil)
-              })
-    }
+        Auth.auth().signIn(withEmail: email, password: password, completion: { [weak self] authResult, error in
+                 guard let strongSelf = self else {
+                     return
+                 }
+                 DispatchQueue.main.async {
+                     strongSelf.spinner.dismiss()
+                 }
+                 
+                 guard let result = authResult, error == nil else {
+                     print("Failed to log in user with email \(email)")
+                     return
+                 }
+                 let user = result.user
+                 let safeEmail = DatabaseManger.safeEmail(email: email)
+                 DatabaseManger.shared.getDataFor(path: safeEmail, completion: { result in
+                     switch result {
+                     case .success(let data):
+                         guard let userData = data as? [String: Any],
+                               let firstName = userData["firstName"] as? String,
+                               let lastName = userData["lastName"] as? String else {
+                                   return
+                               }
+                         UserDefaults.standard.set("\(firstName) \(lastName)", forKey: "name")
+                         
+                     case .failure(let error):
+                         print("Failed to read data with error \(error)")
+                     }
+                 })
+                 
+                 UserDefaults.standard.setValue(email, forKey: "email")
+                 print("logged in user: \(user)")
+                 // if this succeeds, dismiss
+                 strongSelf.navigationController?.dismiss(animated: true, completion: nil)
+             })
+         }
     
     func alretPassword(){
            let alert = UIAlertController(title: "Error", message: "Password must be more than 6 character", preferredStyle: .alert)
@@ -74,8 +90,9 @@ class SigninVC: UIViewController {
     }
     
     @objc private func didTapRegister() {
-            let vc = self.storyboard?.instantiateViewController(withIdentifier: "Regster") as! Regster
-            self.navigationController?.pushViewController(vc, animated: false)
+        let registerVC = storyboard?.instantiateViewController(withIdentifier: "Regster") as! Regster
+               
+               navigationController?.pushViewController(registerVC, animated: true)
         }
 
   

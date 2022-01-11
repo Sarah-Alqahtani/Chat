@@ -46,7 +46,10 @@ class Regster: UIViewController {
 
 
     @IBAction func Rgsterbtn(_ sender: UIButton) {
-        
+        EmailRgster.resignFirstResponder()
+        NewPassword.resignFirstResponder()
+        FirstName.resignFirstResponder()
+        LastName.resignFirstResponder()
         guard let fName = FirstName.text, let lName = LastName.text, let eAddress = EmailRgster.text , let nPass = NewPassword.text, !fName.isEmpty, !lName.isEmpty , !eAddress.isEmpty, !nPass.isEmpty else {
                          alertEmpty()
                          return
@@ -74,6 +77,9 @@ class Regster: UIViewController {
                          print("Error Creating User")
                          return
                      }
+                     UserDefaults.standard.setValue(eAddress, forKey: "email")
+                     UserDefaults.standard.setValue("\(fName) \(lName)", forKey: "name")
+                     
                      let chatUser = ChatAppUser(firstName: fName, lastName: lName, email: eAddress)
                      DatabaseManger.shared.insertUser(with: chatUser,completion: { success in
                          if success {

@@ -32,6 +32,12 @@
 		C3881C36278737010044727C /* chatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3881C35278737010044727C /* chatViewController.swift */; };
 		C3881C382787778E0044727C /* NewConversationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3881C372787778E0044727C /* NewConversationVC.swift */; };
 		C3881C3B278964DA0044727C /* StorageManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3881C3A278964DA0044727C /* StorageManger.swift */; };
+		C3881C5D278B47FC0044727C /* extenation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3881C5C278B47FC0044727C /* extenation.swift */; };
+		C3881C5F278B63060044727C /* Conversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3881C5E278B63060044727C /* Conversation.swift */; };
+		C3881C61278B63470044727C /* ProfileViewModelType .swift in Sources */ = {isa = PBXBuildFile; fileRef = C3881C60278B63470044727C /* ProfileViewModelType .swift */; };
+		C3881C64278B641D0044727C /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3881C63278B641D0044727C /* SearchResult.swift */; };
+		C3881C66278B855D0044727C /* ConversationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3881C65278B855D0044727C /* ConversationTableViewCell.swift */; };
+		C3881C68278B96110044727C /* NewConversationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3881C67278B96110044727C /* NewConversationCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +58,12 @@
 		C3881C35278737010044727C /* chatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chatViewController.swift; sourceTree = "<group>"; };
 		C3881C372787778E0044727C /* NewConversationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewConversationVC.swift; sourceTree = "<group>"; };
 		C3881C3A278964DA0044727C /* StorageManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManger.swift; sourceTree = "<group>"; };
+		C3881C5C278B47FC0044727C /* extenation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extenation.swift; sourceTree = "<group>"; };
+		C3881C5E278B63060044727C /* Conversation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conversation.swift; sourceTree = "<group>"; };
+		C3881C60278B63470044727C /* ProfileViewModelType .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProfileViewModelType .swift"; sourceTree = "<group>"; };
+		C3881C63278B641D0044727C /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
+		C3881C65278B855D0044727C /* ConversationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationTableViewCell.swift; sourceTree = "<group>"; };
+		C3881C67278B96110044727C /* NewConversationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewConversationCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +106,7 @@
 		C3881BF92784E3E70044727C /* Chat */ = {
 			isa = PBXGroup;
 			children = (
+				C3881C62278B63680044727C /* Model */,
 				C3881C39278964360044727C /* DB */,
 				C3881BFA2784E3E70044727C /* AppDelegate.swift */,
 				C3881BFC2784E3E70044727C /* SceneDelegate.swift */,
@@ -109,6 +122,9 @@
 				C3881C232786EA430044727C /* ProfileVC.swift */,
 				C3881C35278737010044727C /* chatViewController.swift */,
 				C3881C372787778E0044727C /* NewConversationVC.swift */,
+				C3881C5C278B47FC0044727C /* extenation.swift */,
+				C3881C65278B855D0044727C /* ConversationTableViewCell.swift */,
+				C3881C67278B96110044727C /* NewConversationCell.swift */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -120,6 +136,16 @@
 				C3881C3A278964DA0044727C /* StorageManger.swift */,
 			);
 			path = DB;
+			sourceTree = "<group>";
+		};
+		C3881C62278B63680044727C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C3881C5E278B63060044727C /* Conversation.swift */,
+				C3881C60278B63470044727C /* ProfileViewModelType .swift */,
+				C3881C63278B641D0044727C /* SearchResult.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,11 +245,17 @@
 				C3881C132784E9B80044727C /* SigninVC.swift in Sources */,
 				C3881C36278737010044727C /* chatViewController.swift in Sources */,
 				C3881BFD2784E3E70044727C /* SceneDelegate.swift in Sources */,
+				C3881C5D278B47FC0044727C /* extenation.swift in Sources */,
+				C3881C64278B641D0044727C /* SearchResult.swift in Sources */,
+				C3881C66278B855D0044727C /* ConversationTableViewCell.swift in Sources */,
+				C3881C61278B63470044727C /* ProfileViewModelType .swift in Sources */,
 				C3881C3B278964DA0044727C /* StorageManger.swift in Sources */,
 				C3881C242786EA430044727C /* ProfileVC.swift in Sources */,
 				C3881C152784E9E40044727C /* Regster.swift in Sources */,
 				C3881C2227860F7F0044727C /* DatabaseManger.swift in Sources */,
 				C3881C112784E8D10044727C /* ConversationVCT.swift in Sources */,
+				C3881C5F278B63060044727C /* Conversation.swift in Sources */,
+				C3881C68278B96110044727C /* NewConversationCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
